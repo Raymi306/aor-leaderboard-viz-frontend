@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LineChart from './LineChart';
+import type { LeaderboardEntry } from './mock-data';
+import { dataset_1 } from './mock-data';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/App.tsx</code> and save to reload. Scroll down for chart!
         </p>
         <a
           className="App-link"
@@ -19,6 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <LineChart incoming_data={dataset_1}></LineChart>
     </div>
   );
 }
