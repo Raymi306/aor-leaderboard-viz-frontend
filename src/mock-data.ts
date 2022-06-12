@@ -26,9 +26,9 @@ function chooseRandom(list: any[]) {
 export type LeaderboardEntry = {
 	score: number,
 	rank: number,
-	user_id: number,
+	userId: number,
 	name: string,
-	user_country: string,
+	userCountry: string,
 	retrievalTime: Date,
 	group: string,
 	location: string,
@@ -38,14 +38,14 @@ export type LeaderboardEntry = {
 }
 
 export function genLeaderboardEntries(numEntries: number) {
-	const user_ids_set: Set<number> = new Set();
-	while (user_ids_set.size < numEntries) {
-		user_ids_set.add(getRandomIntInclusive(1, 10_000));
+	const userIdsSet: Set<number> = new Set();
+	while (userIdsSet.size < numEntries) {
+		userIdsSet.add(getRandomIntInclusive(1, 10_000));
 	}
-	const user_ids: number[] = [...user_ids_set];
+	const userIds: number[] = [...userIdsSet];
 	let entries = []
 	for (let i = 0; i < numEntries; i++) {
-		const user_id = user_ids.pop();
+		const userId = userIds.pop();
 		const group = 'group 2';
 		const location_ = chooseRandom(locations);
 		const weather = chooseRandom(weather_types);
@@ -53,9 +53,9 @@ export function genLeaderboardEntries(numEntries: number) {
 		const entry: LeaderboardEntry = {
 			score: getRandomIntInclusive(60_000, 600_000),
 			rank: 0,
-			user_id: user_id as number,
-			name: `user_${user_id}`,
-			user_country: chooseRandom(user_countries),
+			userId: userId as number,
+			name: `user_${userId}`,
+			userCountry: chooseRandom(user_countries),
 			retrievalTime: getRandomDate(),
 			group: group,
 			location: location_,
