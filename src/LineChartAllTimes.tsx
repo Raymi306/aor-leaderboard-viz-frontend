@@ -30,14 +30,25 @@ const options = {
 			reverse: true,
 			ticks: {
 				callback: (item: any, _index: any, _ticks: any) => {
-					return `${item / 1000}s`;
+					let seconds = item / 1000
+					const minutes = Math.floor(seconds / 60)
+					seconds = seconds % 60
+					return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 				},
 			},
 			grace: '15%',
+			title: {
+				display: true,
+				text: 'time',
+			}
 		},
 		y: {
 			beginAtZero: true,
 			grace: '15%',
+			title: {
+				display: true,
+				text: 'total players',
+			}
 		},
 	},
 	plugins: {
@@ -46,7 +57,7 @@ const options = {
 		},
 		title: {
 			display: true,
-			text: 'Chart.js Line Chart Demo',
+			text: 'Leaderboard Time Distribution',
 		},
 	},
 };
@@ -54,7 +65,7 @@ const options = {
 const data = {
 	datasets: [
 		{
-			label: 'Leaderboard Time Distribution',
+			label: 'Top 10,000 Players',
 			data: [],
 			borderColor: 'rgb(255, 99, 132)',
 			backgroundColor: 'rgba(255, 99, 132, 0.5)',
