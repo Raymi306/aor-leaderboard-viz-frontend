@@ -3,13 +3,19 @@ import type { LeaderboardEntry } from '../types';
 // TODO: remove what's unneeded from here
 import {
   Chart as ChartJS,
-  ArcElement
+  ArcElement,
+  Legend,
+  Title,
+  Tooltip
 } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
 type Props = {}
 
-ChartJS.register(ArcElement); // th
+ChartJS.register(ArcElement); // this needs to exist for some reason
+ChartJS.register(Legend);
+ChartJS.register(Tooltip);
+ChartJS.register(Title);
 
 const options = {
   legend: {
@@ -31,7 +37,8 @@ let chartColors = ["#CCCCCC",
 const DonutChart = (props: any) => { // not sure what props: any *really* does, I'm a typescript noob
   let cars = new Map<string, number>(); // maps car name : # of appearances
   for(let entry of props.incoming_data){
-    cars.set(entry.car, cars.get(entry.car)? +1 : 1); // if it exists, increment else set it to 1
+    // cars.set(entry.car, cars.get(entry.car)?+1 : 1); // if it exists, increment else set it to 1
+    cars.set(entry.car, (cars.get(entry.car) ?? 0) + 1)
   }
 
   // convert the data to something usable by chartjs
