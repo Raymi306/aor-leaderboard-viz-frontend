@@ -43,7 +43,6 @@ export function genLeaderboardEntries(numEntries: number) {
 		user_ids_set.add(getRandomIntInclusive(1, 10_000));
 	}
 	const user_ids: number[] = [...user_ids_set];
-	let rank = getRandomIntInclusive(1, 1_000); // starting rank
 	let entries = []
 	for (let i = 0; i < numEntries; i++) {
 		const user_id = user_ids.pop();
@@ -53,7 +52,7 @@ export function genLeaderboardEntries(numEntries: number) {
 		const stage = chooseRandom(stages)
 		const entry: LeaderboardEntry = {
 			score: getRandomIntInclusive(60_000, 600_000),
-			rank: rank++,
+			rank: 0,
 			user_id: user_id as number,
 			name: `user_${user_id}`,
 			user_country: chooseRandom(user_countries),
@@ -65,6 +64,11 @@ export function genLeaderboardEntries(numEntries: number) {
 			car: chooseRandom(group_2_cars),
 		}
 		entries.push(entry);
+	}
+	entries.sort((a, b) => { return a.score - b.score; })
+	let rank = getRandomIntInclusive(1, 1_000); // starting rank
+	for (let item of entries) {
+		item.rank = rank++
 	}
 	return entries;
 }
