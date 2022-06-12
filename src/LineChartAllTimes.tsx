@@ -1,5 +1,6 @@
 import React from 'react';
-import type { LeaderboardEntry } from './mock-data';
+import type { LeaderboardEntry } from './types';
+import { scoreToTimeString } from './util';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -30,10 +31,7 @@ const options = {
 			reverse: true,
 			ticks: {
 				callback: (item: any, _index: any, _ticks: any) => {
-					let seconds = item / 1000
-					const minutes = Math.floor(seconds / 60)
-					seconds = seconds % 60
-					return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+					return scoreToTimeString(item);
 				},
 			},
 			grace: '15%',

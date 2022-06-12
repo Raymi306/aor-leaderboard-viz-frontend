@@ -1,3 +1,5 @@
+import { LeaderboardEntry } from './types';
+
 const groups = ['group 2', 'group 3', 'group 4', 'group b', 'group s', 'group a'];
 const group_2_cars = ['the esky v1', 'the meanie', 'la montaine', 'das 220', 'das 119i', 'le gorde', 'la regina'];
 const locations = ['finland', 'sardinia', 'japan', 'norway', 'germany', 'kenya'];
@@ -21,20 +23,6 @@ function popRandom(list: any[]) {
 
 function chooseRandom(list: any[]) {
 	return list[Math.floor(Math.random() * list.length)];
-}
-
-export type LeaderboardEntry = {
-	score: number,
-	rank: number,
-	userId: number,
-	name: string,
-	userCountry: string,
-	retrievalTime: Date,
-	group: string,
-	location: string,
-	weather: 'wet' | 'dry'
-	stage: string,
-	car: string,
 }
 
 export function genLeaderboardEntries(numEntries: number) {

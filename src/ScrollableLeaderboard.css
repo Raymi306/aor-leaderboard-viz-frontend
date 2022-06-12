@@ -1,0 +1,27 @@
+.leaderboard-entry-wrapper {
+	overflow: auto;
+	background: magenta;
+}
+.leaderboard-entry-card {
+	font-size: 3.5rem;
+	background: brown;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
+	overflow: scroll;
+	align-items: center;
+	padding: 1rem;
+	margin: 1rem;
+}
+.section {
+	padding: 1rem;
+	margin: 1rem;
+}
+.rank-and-name {
+	background: pink;
+}
+.car {
+	background: yellow;
+}
+.time-diff {
+	background: cyan;
+}
