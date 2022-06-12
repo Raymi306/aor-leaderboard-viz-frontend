@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-	    {/* <ScrollableLeaderboard incoming_data={leaderboardEntries}></ScrollableLeaderboard> */}
+	    <ScrollableLeaderboard incoming_data={leaderboardEntries}></ScrollableLeaderboard>
       <DonutChart incoming_data={leaderboardEntries}/>
     </div>
   );
