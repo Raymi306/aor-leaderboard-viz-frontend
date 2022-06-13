@@ -1,6 +1,6 @@
 import React from 'react';
-import type { LeaderboardEntry } from './types';
-import { scoreToTimeString } from './util';
+import type { LeaderboardEntry } from 'src/types';
+import { scoreToTimeString } from 'src/util';
 import {
   Chart as ChartJS,
   CategoryScale,

@@ -1,5 +1,4 @@
 import React from 'react'
-import type { LeaderboardEntry } from '../types';
 // TODO: remove what's unneeded from here
 import {
   Chart as ChartJS,
@@ -10,18 +9,10 @@ import {
 } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
-type Props = {}
-
 ChartJS.register(ArcElement); // this needs to exist for some reason
 ChartJS.register(Legend);
 ChartJS.register(Tooltip);
 ChartJS.register(Title);
-
-const options = {
-  legend: {
-    display: true,
-  },
-};
 
 let chartColors = ["#CCCCCC",
 "#669999",
@@ -54,14 +45,9 @@ const DonutChart = (props: any) => { // not sure what props: any *really* does, 
     labels: Array.from(cars.keys())
   }
 
-  const config = {
-    type: 'doughnut',
-    data: data,
-  }  
-
   return (
     <div>
-      <Doughnut data={data} />
+      <Doughnut data={data}/>
     </div>
   )
 }

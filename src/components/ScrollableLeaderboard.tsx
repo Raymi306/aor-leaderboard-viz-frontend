@@ -1,7 +1,7 @@
 import React from 'react';
 import './ScrollableLeaderboard.css';
-import { scoreToTimeString } from './util';
-import type { LeaderboardEntry } from './types';
+import { scoreToTimeString } from 'src/util';
+import type { LeaderboardEntry } from 'src/types';
 
 export default function ScrollableLeaderboard(props: any) {
 	const leaderboardEntryCards = [];
