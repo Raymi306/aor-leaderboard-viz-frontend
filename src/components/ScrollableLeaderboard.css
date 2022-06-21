@@ -1,27 +1,19 @@
 .leaderboard-entry-wrapper {
 	overflow: auto;
-	background: magenta;
 }
 .leaderboard-entry-card {
-	font-size: 3.5rem;
-	background: brown;
+	font-size: 1rem;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
 	overflow: scroll;
 	align-items: center;
-	padding: 1rem;
-	margin: 1rem;
+	margin: 0.5rem;
+}
+.leaderboard-entry-card:nth-child(odd) {
+	background: #ece7da;
 }
 .section {
-	padding: 1rem;
-	margin: 1rem;
+	padding: 0.5rem;
+	margin: 0.5rem;
 }
-.rank-and-name {
-	background: pink;
-}
-.car {
-	background: yellow;
-}
-.time-diff {
-	background: cyan;
-}
+
